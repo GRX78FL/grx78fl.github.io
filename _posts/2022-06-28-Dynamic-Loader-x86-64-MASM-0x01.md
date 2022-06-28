@@ -146,5 +146,6 @@ And that's it!
 We now have a functional piece of code that we can use as reference.
 
 ### Demo: 
-
-<video src="https://user-images.githubusercontent.com/20095224/176233849-564be7b5-3e66-4581-878e-9e22459a488a.mp4" controls="controls" style="max-width:814.5px">
+<p style="text-align:center">
+    <video width=500 src="https://user-images.githubusercontent.com/20095224/176233849-564be7b5-3e66-4581-878e-9e22459a488a.mp4" controls="controls">
+</p>
