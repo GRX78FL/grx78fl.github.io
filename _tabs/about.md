@@ -4,5 +4,14 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+<H1 style="text-align:center">
+🖖
+<H1>
+
+<H2 style="text-align:center">
+Hi, I'm GRX.
+</H2>
+
+<p style="text-align:center">
+I like computers,  that's all.
+<p>
