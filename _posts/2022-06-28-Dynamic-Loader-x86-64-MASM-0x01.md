@@ -1,12 +1,8 @@
 ---
-title: Writing A (covert) Dynamic Loader in x86-64 MASM | 0x01
+title: Writing A (covert) Dynamic Loader in x86-64 MASM [0x01]
 categories: [PROGRAMMING, ASSEMBLY]
 tags: [windows, masm, x86-64]
 ---
-
-<H1 style="text-align:center">
-    Writing A (covert) Dynamic Loader in x86-64 MASM
-</H1>
 
 <H3 style="text-align:center">
     0x01 - General Code Structure
@@ -118,12 +114,32 @@ END
 
 #### Assemble and Link:
 
-```
-ml64.exe main.asm /link /entry:start /subsystem:windows /OUT:poc.exe kernel32.lib /nologo && poc
+Paste the following code in a file called `make.bat`:
+
+```batch
+@echo off
+if ["%~1"]==[""] (
+	
+    ml64 main.asm /link /entry:start /subsystem:windows /OUT:poc.exe kernel32.lib /nologo
+
+) else if ["%~1"]==["clean"] (
+	
+    del *.obj,*.exe,*.lnk
+
+) else (
+
+	echo usage:
+	echo make           - assembles and links main.asm into poc.exe.
+	echo make clean     - deletes all .exe, .obj and .lnk files in the dir.
+)
+@echo on
 ```
 
-If your copy pasta game is on point you should see this, and hear a short beep after pressing "Ok".
-    
+This will serve as a rudimentary build system, and that's all we really need in this case.
+
+Issue the `make` command.
+
+If your copy pasta game is on point you should see our `poc.exe` binary.
 
 And that's it!
 

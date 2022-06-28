@@ -1,12 +1,8 @@
 ---
-title: Writing A (covert) Dynamic Loader in x86-64 MASM | 0x00
+title: Writing A (covert) Dynamic Loader in x86-64 MASM [0x00]
 categories: [PROGRAMMING, ASSEMBLY]
 tags: [windows, masm, x86-64]
 ---
-
-<H1 style="text-align:center">
-    Writing A (covert) Dynamic Loader in x86-64 MASM
-</H1>
 
 <H3 style="text-align:center">
     0x00 - Introduction 
@@ -46,3 +42,4 @@ tags: [windows, masm, x86-64]
 - [Undocumented Windows Structs](https://www.vergiliusproject.com/) (by [RevJay](https://github.com/RevJay) and [SergiusTheBest](https://github.com/SergiusTheBest));
 - [PEB Walking](https://blog.christophetd.fr/hiding-windows-api-imports-with-a-customer-loader/) (by [@christophetd](https://twitter.com/christophetd));
 - [API Hashing](https://www.ired.team/offensive-security/defense-evasion/windows-api-hashing-in-malware) (by [@spotheplanet](https://twitter.com/spotheplanet));
+- [Malware Development](https://0xpat.github.io/Malware_development_part_1/) (by [0xPat](https://www.twitter.com/0xPat)).
