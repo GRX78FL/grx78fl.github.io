@@ -4,6 +4,21 @@ categories: [PROGRAMMING, ASSEMBLY]
 tags: [windows, masm, x86-64]
 ---
 
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/vs2015.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/x86asm.min.js"></script>
+
+<script type="module">
+    import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js';
+    import x86asm from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/x86asm.min.js';
+    hljs.registerLanguage('x86asm', x86asm);
+    hljs.registerLanguage('dos', dos);
+</script>
+
+<script>hljs.highlightAll();</script>
+
 <H3 style="text-align:center">
     0x01 - General Code Structure
 </H3>
@@ -12,7 +27,7 @@ tags: [windows, masm, x86-64]
 
 #### Non obfuscated base:
 
-```liquid
+<pre><code class="language-x86asm">
 ; The only two imports we require:
 
 ; HMODULE GetModuleHandleA(LPCSTR modulename)
@@ -110,7 +125,7 @@ _TEXT SEGMENT
 
 _TEXT ENDS
 END
-```
+</code></pre>
 
 #### Assemble and Link:
 
