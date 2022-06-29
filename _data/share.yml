@@ -15,7 +15,7 @@ platforms:
     icon: "fab fa-telegram"
     link: "https://t.me/share/url?url=URL&text=TITLE"
 
-   Uncomment below if you need to.
+  # Uncomment below if you need to.
    -
      type: Linkedin
      icon: "fab fa-linkedin"
