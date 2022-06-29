@@ -25,17 +25,25 @@ tags: [windows, masm, x86-64]
 
 ---
 
-#### Non obfuscated base:
+### What we're doing: 
+<p style="text-align:center">
+    <video width=500 src="https://user-images.githubusercontent.com/20095224/176233849-564be7b5-3e66-4581-878e-9e22459a488a.mp4" controls="controls"></video>
+</p>
+
+### How we're doing it:
+#### We'll start by declaring the only two imports we require to bootstrap our loader.
 
 <pre><code class="language-x86asm">
-; The only two imports we require:
-
 ; HMODULE GetModuleHandleA(LPCSTR modulename)
 EXTRN __imp_GetModuleHandleA:PROC
 
 ; FARPROC GetProcAddress (HMODULE modulehandle, LPCSTR procname)
 EXTRN __imp_GetProcAddress:PROC
+</code></pre>
 
+#### The next step is to prepare some static global variables in the ```.data section```.
+
+<pre><code class="language-x86asm">
 ; Static data 
 _DATA SEGMENT
     
@@ -49,8 +57,11 @@ _DATA SEGMENT
     Message         db      "Click on ", '"', "Ok", '"', '.', 0h
 
 _DATA ENDS
+</code></pre>
 
+#### We'll also need global variables for the resolved APIs (function pointers), zero initialized.
 
+<pre><code class="language-x86asm">
 ; Uninitialized data
 _BSS SEGMENT align(8) READ WRITE
     
@@ -62,8 +73,13 @@ _BSS SEGMENT align(8) READ WRITE
     LoadLibraryAPtr dq      0000000000000000h
 
 _BSS ENDS
+</code></pre>
 
+#### Our code will live in the ```.text``` section and contains 3 functions: ***start***, ***setup*** and ***main***.
+ ***start*** is the entry point and is responsible for the loader's general code flow:
+ it calls setup, then main and terminates the process.
 
+<pre><code class="language-x86asm">
 ; Code
 _TEXT SEGMENT
     
@@ -77,7 +93,11 @@ _TEXT SEGMENT
         add     rsp, 8
         ret
     start ENDP
+</code></pre>
 
+#### ***setup*** is responsible for resolving APIs and saving the resulting function pointers in the ```.bss``` section using [GetModuleHandleA](https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulehandlea), [LoadLibraryA](https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya) and [GetProcAddress](https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getprocaddress).
+
+<pre><code class="language-x86asm">
     ; Resolves Win32 APIs and saves function ptrs as 
     ; global variables for later use
     setup PROC
@@ -107,7 +127,11 @@ _TEXT SEGMENT
         add     rsp, 28h
         ret
     setup ENDP
+</code></pre>
 
+#### Finally, we call ***main*** which is where the program starts using the collected artifacts: 
+
+<pre><code class="language-x86asm">
     ; Just like nothing happened!
     main PROC
         sub     rsp, 28h
@@ -115,10 +139,10 @@ _TEXT SEGMENT
         lea     rdx, Message
         lea     r8, Caption
         xor     r9d, r9d
-        call    MessageBoxAPtr
+        call    MessageBoxAPtr                              ; MessageBoxA (NULL, Message, Caption, NULL)
         mov     ecx, 100h
         mov     edx, 100h
-        call    BeepPtr
+        call    BeepPtr                                     ; Beep (256, 256)
         add     rsp, 28h
         ret
     main ENDP
@@ -159,8 +183,3 @@ If your copy pasta game is on point you should see our `poc.exe` binary.
 And that's it!
 
 We now have a functional piece of code that we can use as reference.
-
-### Demo: 
-<p style="text-align:center">
-    <video width=500 src="https://user-images.githubusercontent.com/20095224/176233849-564be7b5-3e66-4581-878e-9e22459a488a.mp4" controls="controls">
-</p>
