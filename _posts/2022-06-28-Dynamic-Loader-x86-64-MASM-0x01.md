@@ -4,23 +4,13 @@ categories: [PROGRAMMING, ASSEMBLY]
 tags: [windows, masm, x86-64]
 ---
 
-<link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/vs2015.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/x86asm.min.js"></script>
-
-<script type="module">
-    import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js';
-    import x86asm from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/x86asm.min.js';
-    hljs.registerLanguage('x86asm', x86asm);
-    hljs.registerLanguage('dos', dos);
-</script>
-
+<link href="/assets/css/vs2015.min.css" rel="stylesheet"/>
+<script src="/assets/js/highlight.min.js"></script>
+<script src="/assets/js/x86asm.min.js"></script>
 <script>hljs.highlightAll();</script>
 
 <H3 style="text-align:center">
-    0x01 - General Code Structure
+    [0x01] - General Code Structure
 </H3>
 
 ---
@@ -41,7 +31,7 @@ EXTRN __imp_GetModuleHandleA:PROC
 EXTRN __imp_GetProcAddress:PROC
 </code></pre>
 
-#### The next step is to prepare some static global variables in the ```.data section```.
+#### The next step is to prepare some static global variables in the ```.data``` section.
 
 <pre><code class="language-x86asm">
 ; Static data 
@@ -76,6 +66,7 @@ _BSS ENDS
 </code></pre>
 
 #### Our code will live in the ```.text``` section and contains 3 functions: ***start***, ***setup*** and ***main***.
+
  ***start*** is the entry point and is responsible for the loader's general code flow:
  it calls setup, then main and terminates the process.
 

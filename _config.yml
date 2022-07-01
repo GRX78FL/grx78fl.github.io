@@ -120,6 +120,13 @@ pwa:
 
 paginate: 10
 
+#custom
+
+plugins:  
+  - jekyll-redirect-from
+
+#custom ends
+
 # ------------ The following options are not recommended to be modified ------------------
 kramdown:
   syntax_highlighter: rouge

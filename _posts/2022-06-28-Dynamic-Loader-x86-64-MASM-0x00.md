@@ -5,7 +5,7 @@ tags: [windows, masm, x86-64]
 ---
 
 <H3 style="text-align:center">
-    0x00 - Introduction 
+    [0x00] - Introduction 
 </H3>
 
 ---
@@ -29,7 +29,7 @@ tags: [windows, masm, x86-64]
 
 - Operating System: [Windows 11](https://www.microsoft.com/en-ca/software-download/windows11);
 - Code Editor: [Visual Studio Code](https://code.visualstudio.com/);
-- VS Code extension: [x86-64 ASM Syntax Highlighting](https://marketplace.visualstudio.com/items?itemName=13xforever.language-x86-64-assembly)
+- VS Code extension: [x86-64 ASM Syntax Highlighting](https://marketplace.visualstudio.com/items?itemName=13xforever.language-x86-64-assembly);
 - Assembler: [MASM](https://docs.microsoft.com/en-us/cpp/assembler/masm/masm-for-x64-ml64-exe?view=msvc-170);
 - Scripting/Automation: [Python3](https://www.python.org/downloads/);
 - Debugger: [WinDbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools);
