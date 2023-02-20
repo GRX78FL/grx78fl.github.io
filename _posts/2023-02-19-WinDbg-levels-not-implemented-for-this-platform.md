@@ -16,9 +16,9 @@ Imagine being deep into a kernel debugging session and suddenly your debugger st
   </center>
 </div>
 
-<u>_([This](https://learn.microsoft.com/en-us/answers/questions/1010386/windbg-pte-command-levels-not-implemented-for-this)</u> has been
-<u>[going on](https://github.com/MicrosoftDocs/windows-driver-docs/issues/3058)</u> for
-<u>[**years**](https://github.com/MicrosoftDocs/windows-driver-docs/issues/2587)</u> at this point and it doesn't look like there's active interest in fixing or investigating the bug, yet.)_
+([This](https://learn.microsoft.com/en-us/answers/questions/1010386/windbg-pte-command-levels-not-implemented-for-this) has been
+[going on](https://github.com/MicrosoftDocs/windows-driver-docs/issues/3058) for
+[**years**](https://github.com/MicrosoftDocs/windows-driver-docs/issues/2587) at this point and it doesn't look like there's active interest in fixing or investigating the bug, yet.)
 
 Still, it continues to be a crippling bug that affects us at the worst possible times.
 
