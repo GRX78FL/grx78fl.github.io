@@ -4,8 +4,6 @@ categories: [WINDBG, ASSEMBLY]
 tags: [windows, windbg, x86-64]
 ---
 
----
-
 ## **The issue**
 
 Imagine being deep into a kernel debugging session and suddenly your debugger stops working as expected. 
@@ -61,7 +59,7 @@ I'll save you the trouble of finding where exactly the "Levels not implemented f
 
  If you're not familiar with paging, this [odsev article](https://wiki.osdev.org/Paging) has some insight into why our bug is so absurd.
 
- ## **WinDbg-Inception**
+## **WinDbg-Inception**
 
  Here comes the dirty fix part.
 
@@ -89,8 +87,8 @@ I'll save you the trouble of finding where exactly the "Levels not implemented f
 
 That makes no sense. 
 
-Let's edit the memory to reflect the correct value as of Feb 2023 this value [should be](https://en.wikipedia.org/wiki/Intel_5-level_paging) either 4 or 5 depending on your sw/hw combo.
-I'll edit it to 4, because of my setup. (This is due to be way more variable in the future, but by then, hopefully you won't need this guide anymore).
+Let's edit the memory to reflect the correct value (which as of Feb 2023 [should be](https://en.wikipedia.org/wiki/Intel_5-level_paging) either 4 or 5 depending on your CPU/Windows Edition combo).
+I'll edit it to 4, because of my CPU is quite an old one and I'm not using Windows Server edition. (This is bound to be way more variable in the future, but by then, hopefully you won't need this guide anymore).
 
 ![image](https://user-images.githubusercontent.com/20095224/219987026-cd2776ae-ad73-43f4-aaa7-f94a2a08f1d8.png)
 
@@ -104,3 +102,12 @@ I'll edit it to 4, because of my setup. (This is due to be way more variable in 
 And that's it, you can keep on hunting bugs.
 
 I hope this was useful.
+
+---
+
+### **Note:**
+
+This is not a proper fix, and this article skips the root cause analysis of this behavior.
+It is intended to be a quick way of dealing with the issue when it presents itself.
+
+Additional analysis may or may not be posted here as an update, but for now I'm only interested in continuing the work I was interrupted from.
