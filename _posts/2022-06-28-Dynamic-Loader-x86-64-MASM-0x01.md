@@ -146,7 +146,7 @@ END
 
 Paste the following code in a file called `make.bat`:
 
-```batch
+```bat
 @echo off
 if ["%~1"]==[""] (
 	
